@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Login to Appointment" skipped="0" tests="1" time="1.27" timestamp="2023-03-24 11:18:45"><testcase name="Login Page"><failure message="Undefined default URL for page object PageObject" type="java.lang.AssertionError">Undefined default URL for page object PageObject</failure><system-err>Undefined default URL for page object PageObject&#13;
+StepDef.LoginStepDef.userIsOnRegistrationPage(LoginStepDef.java:20)&#13;
+✽.user is on registration page(file:///C:/Users/Rohit.Chavda/Downloads/Easy%20appointment/Appointment/src/test/resources/Feature/Login.feature:4)&#13;
+</system-err></testcase></testsuite>

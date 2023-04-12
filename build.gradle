@@ -1,0 +1,49 @@
+plugins
+        {
+            id "net.serenity-bdd.serenity-gradle-plugin" version "3.6.7"
+            id 'java'
+            id 'idea'
+        }
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+defaultTasks 'clean','test','aggregate'
+
+repositories
+        {
+            mavenCentral()
+        }
+sourceCompatibility = 11
+targetCompatibility = 11
+
+ext {
+    slf4jVersion = '2.0.5'
+    serenityCoreVersion = '3.6.12'
+    junitVersion = '5.9.2'
+    assertJVersion = '3.24.2'
+    logbackVersion = '1.4.6'
+}
+dependencies {
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation 'io.cucumber:cucumber-java:7.11.1'
+    implementation 'org.seleniumhq.selenium:selenium:2.0b3'
+    implementation 'net.serenity-bdd:serenity-core:3.6.12'
+    implementation 'io.devcon5:pageobjects:0.3.1'
+    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-junit5:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}",
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "ch.qos.logback:logback-classic:${logbackVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"}
+
+
+test {
+    useJUnitPlatform()
+}
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
